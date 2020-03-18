@@ -58,7 +58,7 @@ public class Main extends JavaPlugin implements Listener {
                     if (user.isAfk()) {
                         if ((currentTime - user.getAfkSince()) > maxAllowIdleTime) {
                             getLogger().info("Kicking player " + user.getName() + " cause server is busying but player is idle too long time.");
-                            user.getBase().kickPlayer(kickMsg);
+                            Bukkit.getScheduler().runTask(plugin,()->user.getBase().kickPlayer(kickMsg));
                         }
                     }
                 });
